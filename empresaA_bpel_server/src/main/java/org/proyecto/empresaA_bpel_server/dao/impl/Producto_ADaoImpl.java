@@ -72,7 +72,7 @@ public class Producto_ADaoImpl extends CustomHibernateDaoSupport implements Prod
 
 	@SuppressWarnings("unchecked")
 	public List<Producto_A> findAll (){
-
+		System.out.println("en findAll");
 		  return (List<Producto_A>) this.getSessionFactory().getCurrentSession().createCriteria (Producto_A.class ).list();
    
 		
