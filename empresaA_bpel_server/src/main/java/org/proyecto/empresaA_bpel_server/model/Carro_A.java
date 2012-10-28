@@ -68,7 +68,7 @@ public class Carro_A implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "IDCARRO_B")
+	@Column(name = "IDCARRO_A")
 	public Integer getIdcarro_a() {
 		return idcarro_a;
 	}

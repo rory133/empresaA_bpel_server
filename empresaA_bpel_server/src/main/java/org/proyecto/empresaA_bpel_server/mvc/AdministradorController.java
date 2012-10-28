@@ -39,7 +39,7 @@ public class AdministradorController {
 
 
 	
-	protected static Logger logger = Logger.getLogger("*en Administrador_B_BControlleren servidor#######*");
+	protected static Logger logger = Logger.getLogger("*en Administrador_A_AControlleren servidor#######*");
 	
 	
 	
@@ -51,10 +51,10 @@ public class AdministradorController {
 	@RequestMapping(value="/administrador",
 			method = RequestMethod.POST,
 			headers="Accept=application/xml, application/json")
-	public @ResponseBody void addCliente_B_form(@RequestBody Administrador_A administrador_a) {
+	public @ResponseBody void addCliente_A_form(@RequestBody Administrador_A administrador_a) {
 
 
-		logger.info("addAdministrador_B_form ");
+		logger.info("addAdministrador_A_form ");
 		
 		administrador_a.setAUTHORITY("ROLE_ADMIN");
 		administrador_a.setENABLED(true);
@@ -74,7 +74,7 @@ public class AdministradorController {
 				method=RequestMethod.GET, 
 				headers="Accept=application/xml, application/json")
 	
-	public @ResponseBody  ListaAdministradores_A listadoAdministradores_B(){
+	public @ResponseBody  ListaAdministradores_A listadoAdministradores_A(){
 		logger.info("enServidor en listadoAdministradores REST server ####");
 		
 
@@ -117,7 +117,7 @@ public class AdministradorController {
 		}
 
 	@RequestMapping(value="/edit",method=RequestMethod.GET)
-	public ModelAndView editAdministrador_B_form(String id){
+	public ModelAndView editAdministrador_A_form(String id){
 
 
 	
@@ -127,7 +127,7 @@ public class AdministradorController {
 		logger.info("producto pasado a edit-modificar: "+administrador_b.getNombre_a());
 		
 		
-		//List<Producto_A> lista =productos_BServiceImpl.getProductos_B();
+		//List<Producto_A> lista =productos_AServiceImpl.getProductos_A();
 		//return new ModelAndView("producto_b/listaProductos","productos", lista);
 		return new ModelAndView("administrador_b/modificar", "administrador_b",administrador_b);
 	
@@ -141,7 +141,7 @@ public class AdministradorController {
 public @ResponseBody void updateCliente(@PathVariable ("id") String id, @RequestBody Administrador_A administrador_b) {
 
 
-		logger.info("en servido inicio de updateAdministrador_B en servidor####### ");
+		logger.info("en servido inicio de updateAdministrador_A en servidor####### ");
 		administrador_b.setAUTHORITY("ROLE_ADMIN");
 		administrador_b.setENABLED(true);
 		administrador_AServiceImpl.update(administrador_b);
@@ -154,8 +154,8 @@ public @ResponseBody void updateCliente(@PathVariable ("id") String id, @Request
 	@RequestMapping(value="/administrador/{id}"
 			, method = RequestMethod.DELETE,
 			headers="Accept=application/xml, application/json")
-	public @ResponseBody void delAdministrador_B_form(@PathVariable("id")String  id){
-		logger.info(" en deladministrador_B_form DELETE por id  ##### " +id);
+	public @ResponseBody void delAdministrador_A_form(@PathVariable("id")String  id){
+		logger.info(" en deladministrador_A_form DELETE por id  ##### " +id);
 		
 		Administrador_A administrador_b= new Administrador_A();
 		administrador_b= administrador_AServiceImpl.findByAdministrador_AIdAdministrador_a(id);

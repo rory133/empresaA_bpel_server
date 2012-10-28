@@ -102,7 +102,7 @@ public class Producto_ASeleccionadoController {
 			ListaProductos_ASeleccionados lista = new ListaProductos_ASeleccionados();
 			logger.info(" en getProductosBSeleccionadosPorIdCarro {idCarro} SERVIDOR ##### idCarro : "+idCarro);
 			logger.info(" tamañao lista productos selceecionados {idCarro} SERVIDOR ##### idCarro : "+producto_ASeleccionadoService.findByProducto_ASeleccionadoPorIdcarro_a(idCarro));
-			lista.setDataProductoBSeleccionado(producto_ASeleccionadoService.findByProducto_ASeleccionadoPorIdcarro_a(idCarro));
+			lista.setDataProductoASeleccionado(producto_ASeleccionadoService.findByProducto_ASeleccionadoPorIdcarro_a(idCarro));
 			return lista;
 
 		}

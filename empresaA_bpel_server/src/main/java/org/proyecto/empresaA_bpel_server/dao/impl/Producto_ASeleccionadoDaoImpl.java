@@ -39,19 +39,19 @@ public class Producto_ASeleccionadoDaoImpl extends CustomHibernateDaoSupport imp
 		
 	}
 	@SuppressWarnings("unchecked")
-	public Producto_ASeleccionado findByProducto_ASeleccionadoIdProducto_a(String producto_BSeleccionadoIdProducto_b) {
+	public Producto_ASeleccionado findByProducto_ASeleccionadoIdProducto_a(String producto_ASeleccionadoIdProducto_a) {
 	
 		List<Producto_ASeleccionado> list = getHibernateTemplate().find(
-                     "from Producto_ASeleccionado where IDPRODUCTOSELECCIONADO = ?",Integer.parseInt(producto_BSeleccionadoIdProducto_b));
+                     "from Producto_ASeleccionado where IDPRODUCTOSELECCIONADO = ?",Integer.parseInt(producto_ASeleccionadoIdProducto_a));
 					//"from Producto_ASeleccionado where IDPRODUCTOB = ?",Integer.parseInt(producto_BSeleccionadoIdProducto_b));
 		
 		return (Producto_ASeleccionado)list.get(0);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Producto_ASeleccionado findByProducto_ASeleccionado_nombre(String producto_BSeleccionado_nombre) {
+	public Producto_ASeleccionado findByProducto_ASeleccionado_nombre(String producto_ASeleccionado_nombre) {
 		List <Producto_ASeleccionado> list = getHibernateTemplate().find(
-                "from Producto_ASeleccionado where NOMBRE_PRODUCTOB = ?",producto_BSeleccionado_nombre);
+                "from Producto_ASeleccionado where NOMBRE_PRODUCTOA = ?",producto_ASeleccionado_nombre);
 		return (Producto_ASeleccionado)list.get(0);
 	}
 	
@@ -73,7 +73,7 @@ public class Producto_ASeleccionadoDaoImpl extends CustomHibernateDaoSupport imp
 		System.out.println("carro_b en find-por iddproducto y por idCarro: "+carro_a);
 		System.out.println("productoseleccionado en find-por iddproducto y por idCarro: "+Producto_BSeleccionadoIdProducto_a);
 		List <Producto_ASeleccionado> list = getHibernateTemplate().find(
-        	"from Producto_ASeleccionado where IDCARRO_B = ?", Integer.parseInt(carro_a));
+        	"from Producto_ASeleccionado where IDCARRO_A = ?", Integer.parseInt(carro_a));
 		System.out.println("despues de buscar productos find-por iddproducto y por idCarro");
 		if(list.isEmpty()){
 			return null;
@@ -98,10 +98,10 @@ public class Producto_ASeleccionadoDaoImpl extends CustomHibernateDaoSupport imp
 		
 	}
 	@SuppressWarnings("unchecked")
-	public List <Producto_ASeleccionado> findByProducto_ASeleccionadoPorIdcarro_a(String carro_b){
-		System.out.println("carro_b en find por id carro: "+carro_b);
+	public List <Producto_ASeleccionado> findByProducto_ASeleccionadoPorIdcarro_a(String carro_a){
+		System.out.println("carro_b en find por id carro: "+carro_a);
 		List <Producto_ASeleccionado> list = getHibernateTemplate().find(
-        	"from Producto_ASeleccionado where idcarro_b = ?", Integer.parseInt(carro_b));
+        	"from Producto_ASeleccionado where idcarro_a = ?", Integer.parseInt(carro_a));
 		System.out.println("tamaño lista en findByProducto_BSeleccionadoPorIdcarro_b: "+list.size());
 		
 	/*	if(list.isEmpty()){

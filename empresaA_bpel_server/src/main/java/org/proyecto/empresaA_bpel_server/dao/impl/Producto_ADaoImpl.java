@@ -51,13 +51,13 @@ public class Producto_ADaoImpl extends CustomHibernateDaoSupport implements Prod
 		
 	}
 	@SuppressWarnings("unchecked")
-	public Producto_A findByProducto_AIdProducto_a(String producto_BIdProducto_b) {
+	public Producto_A findByProducto_AIdProducto_a(String producto_AIdProducto_a) {
 		 
 /*		List<Producto_A> list = getHibernateTemplate().find(
 				"from Producto_A where IDPRODUCTOB = ?",Integer.parseInt(producto_BIdProducto_b)); 
 		return (Producto_A)list.get(0);*/
 		
-		List<Producto_A> list = this.getSessionFactory().getCurrentSession().createCriteria (Producto_A.class ).add(Restrictions.eq("idproductob",Integer.parseInt(producto_BIdProducto_b))).list();
+		List<Producto_A> list = this.getSessionFactory().getCurrentSession().createCriteria (Producto_A.class ).add(Restrictions.eq("idproductoa",Integer.parseInt(producto_AIdProducto_a))).list();
 		return (Producto_A)list.get(0);
 		
 		

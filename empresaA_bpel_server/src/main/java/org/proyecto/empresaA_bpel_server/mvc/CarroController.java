@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @Scope("session")
 @RequestMapping("/carro")
-@SessionAttributes("carro_B")
+@SessionAttributes("carro_A")
 public class CarroController {
 
 
@@ -34,7 +34,7 @@ public class CarroController {
 
 	
 	@Autowired
-	Carro_AServiceImpl carro_BService;
+	Carro_AServiceImpl carro_AService;
 	
 
 	
@@ -48,53 +48,53 @@ public class CarroController {
 	
 	
 	//creamos un nuevo carro
-	@RequestMapping(value="/carro_b",
+	@RequestMapping(value="/carro_a",
 					method = RequestMethod.POST,
 					headers="Accept=application/xml, application/json")
-	public @ResponseBody Carro_A addCarro_B_form(@RequestBody Carro_A carro_b) {
+	public @ResponseBody Carro_A addCarro_A_form(@RequestBody Carro_A carro_a) {
 		logger.info("salvamos un carro REST server ####");
-		//Carro_A carro_b =new Carro_A();
-		carro_BService.save(carro_b);
+		//Carro_A carro_a =new Carro_A();
+		carro_AService.save(carro_a);
 		
 		//devolvemos el id delproducto recien creado
-		return carro_b;
+		return carro_a;
 
 	}
 	
 	//actualizamos un carro
-	@RequestMapping(value="/carro_b",
+	@RequestMapping(value="/carro_a",
 					method = RequestMethod.PUT,
 					headers="Accept=application/xml, application/json")
-	public @ResponseBody Carro_A updateCarro_B_form(@RequestBody Carro_A carro_b) {
+	public @ResponseBody Carro_A updateCarro_A_form(@RequestBody Carro_A carro_a) {
 		logger.info("actualizar un carro REST server ####");
-		carro_BService.update(carro_b);
+		carro_AService.update(carro_a);
 		//devolvemos el id delproducto recien creado
-		return carro_b;
+		return carro_a;
 	
 	}
 	
 	
 	//borramos un carro
-	@RequestMapping(value="/carro_b/{id}",
+	@RequestMapping(value="/carro_a/{id}",
 					method = RequestMethod.DELETE,
 					headers="Accept=application/xml, application/json")
-	public @ResponseBody void deleteCarro_B_form(@PathVariable("id")String  id) {
+	public @ResponseBody void deleteCarro_A_form(@PathVariable("id")String  id) {
 		logger.info("borrar un carro REST server ####");
 		
-		Carro_A carro_b=carro_BService.findByCarro_AIdCarro_a(id);
-		carro_BService.delete(carro_b);
+		Carro_A carro_a=carro_AService.findByCarro_AIdCarro_a(id);
+		carro_AService.delete(carro_a);
 		
 		
 	
 	}
 	
 	//obtener un carro
-	@RequestMapping(value="/carro_b/{id}",
+	@RequestMapping(value="/carro_a/{id}",
 					method = RequestMethod.GET,
 					headers="Accept=application/xml, application/json")
-	public @ResponseBody Carro_A getCarro_B_form(@PathVariable("id")String  id) {
+	public @ResponseBody Carro_A getCarro_A_form(@PathVariable("id")String  id) {
 		logger.info("obtener un carro por el id REST server #### id: "+ id);
-		return carro_BService.findByCarro_AIdCarro_a(id);
+		return carro_AService.findByCarro_AIdCarro_a(id);
 	
 	}
 	
@@ -104,14 +104,28 @@ public class CarroController {
 			method=RequestMethod.GET, 
 			headers="Accept=application/xml, application/json")
 
-public @ResponseBody  ListaCarros_A listadoCarros_B(){
+public @ResponseBody  ListaCarros_A listadoCarros_A(){
 	logger.info("listado de todos los carros REST server ####");
-	//List<Cliente_A> clientes_b=cliente_BServiceImpl.findAll();
+	//List<Cliente_A> clientes_a=cliente_AServiceImpl.findAll();
+	
+/*	ListaCarros_A lista=new ListaCarros_A();
+	lista.setDataCarro(carro_AService.findAll());*/
+	
 	
 	ListaCarros_A lista=new ListaCarros_A();
-	lista.setDataCarro(carro_BService.findAll());
+	lista.setDataCarro(carro_AService.findAll());
+	if (lista.getDataCarro().isEmpty())
+		lista=null;
 	
    return lista;
+   
+   
+   
+   
+   
+   
+   
+   
 }
 	
 //realizamos pago carro
@@ -125,7 +139,7 @@ public void pagarCarro( @RequestBody Carro_A carro_a) {
 	
 	
 	carro_a.setPagado(true);
-	carro_BService.update(carro_a);
+	carro_AService.update(carro_a);
 	
 	String content="apreciado usuario le informamos que el pago de su pedido numero "+carro_a.getIdcarro_a()+" se ha realizado con exito, en breve le informaremos al realziar el envio";
 	String subject="pedido: "+carro_a.getIdcarro_a();		

@@ -73,10 +73,10 @@ public class Producto_A implements Serializable{
 	}
 
 
-	public Producto_A(String nombre_productoB, Integer cantidad_existencias,
+	public Producto_A(String nombre_productoA, Integer cantidad_existencias,
 			BigDecimal longitud_a, BigDecimal diametro_a, BigDecimal precio_a) {
 		super();
-		this.nombre_productoA = nombre_productoB;
+		this.nombre_productoA = nombre_productoA;
 		this.cantidad_existencias = cantidad_existencias;
 		this.longitud_a = longitud_a;
 		this.diametro_a = diametro_a;
