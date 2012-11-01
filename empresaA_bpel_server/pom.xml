@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.proyecto</groupId>
-  <artifactId>empresaB_bpel_server</artifactId>
+  <artifactId>empresaA_bpel_server</artifactId>
   <packaging>war</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>empresaB_bpel_server</name>
+  <name>empresaA_bpel_server</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -255,6 +255,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <finalName>empresaB_bpel_server</finalName>
+    <finalName>empresaA_bpel_server</finalName>
   </build>
 </project>
