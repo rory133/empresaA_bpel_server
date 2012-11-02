@@ -20,5 +20,7 @@ public interface Carro_AService {
 	List<Carro_A>findByTodosCarro_AIdCliente_a(String carro_AIdCliente_a);
 		
 	List<Carro_A> findAll ();
+	
+	
 
 }
